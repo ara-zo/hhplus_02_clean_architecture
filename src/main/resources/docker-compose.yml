@@ -1,0 +1,26 @@
+# docker-compose -f docker-compose.yml up -d
+# docker ps -a
+
+version: ‘3.8’
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: LECTURE
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - /Users/jo/IdeaProjects/hhplus_02_clean_architecture/init-scripts:/docker-entrypoint-initdb.d
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-authentication-plugin=mysql_native_password
+      --max_allowed_packet=64M
+      --log-bin=/var/lib/mysql/mysql-bin.log
+volumes:
+  mysql_data:
