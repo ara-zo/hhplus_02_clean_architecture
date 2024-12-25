@@ -3,15 +3,15 @@ spring:
     name: hhplus_02_clean_architecture
 
   datasource:
-    url: jdbc:mysql://localhost:3307/mysqldb # MySQL ?????? URL
-    username: user                         # MySQL ??? ??
-    password: password                         # MySQL ????
-    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL ???? ???
+    url: jdbc:mysql://localhost:3307/mysqldb
+    username: user
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   sql:
-    init: # application ??? sql ??
+    init: # application 실행시 sql 실행
       mode: always
-      data-locations: classpath*:init-scripts/data.sql
+      data-locations: classpath*:init-scripts/data.sql # resources 안에 위치해야 함
       continue-on-error: true
 
 # JPA ??
