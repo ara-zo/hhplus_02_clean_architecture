@@ -1,3 +1,5 @@
+
+
 -- Clear previous data
 DELETE
 FROM lecture_history;
